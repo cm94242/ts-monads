@@ -26,8 +26,8 @@ export class Either<L, R> {
 
 	match<T>(matcher: EitherMatch<L, R, T>) : T {
 		return this.isLeft() ?
-			matcher.left(this.value() as L) :
-			matcher.right(this.value() as R)
+			matcher.left(this.l.get()) :
+			matcher.right(this.r.get())
 	}
 
 	static left<L, R>(l: L): Either<L, R>{
