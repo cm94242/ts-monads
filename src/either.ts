@@ -6,7 +6,7 @@ export interface EitherMatch<L, R, T> {
 }
 
 export class Either<L, R> {
-	private constructor(private readonly l: Option<Side<L>>, private readonly r: Option<Side<R>>){
+	private constructor(private readonly l: Option<L>, private readonly r: Option<R>){
 		if (!l.isDefined() && !r.isDefined()){
 			throw new Error("Both sides cannot be None")
 		}
@@ -21,7 +21,7 @@ export class Either<L, R> {
 	}
 
 	value() : L | R {
-		return this.isLeft() ? this.l.get().value : this.r.get().value
+		return this.isLeft() ? this.l.get(): this.r.get()
 	}
 
 	match<T>(matcher: EitherMatch<L, R, T>) : T {
@@ -31,16 +31,12 @@ export class Either<L, R> {
 	}
 
 	static left<L, R>(l: L): Either<L, R>{
-		return new Either<L, R>(Option.from(new Side(l)), Option.from(null))
+		return new Either<L, R>(Option.from(l), Option.from(null))
 	}
 
 	static right<L, R>(r: R): Either<L, R>{
-		return new Either<L, R>(Option.from(null), Option.from(new Side(r)))
+		return new Either<L, R>(Option.from(null), Option.from(r))
 	}
-}
-
-class Side<T> {
-	constructor(readonly value: T){}
 }
 
 /*
