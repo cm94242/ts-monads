@@ -38,13 +38,3 @@ export class Either<L, R> {
 		return new Either<L, R>(Option.from(null), Option.from(r))
 	}
 }
-
-/*
-const e1 : Either<string, number> = Either.left('hi')
-const e2 : Either<string, number> = Either.right(5)
-
-e1.match({
-	left: v => console.log(`left ${v}`),
-	right: v => console.log(`right ${v}`)
-})
-*/
