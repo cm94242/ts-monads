@@ -18,3 +18,11 @@ function resolve_path_inner<T>(content: Object, json_path: string, transformer: 
 export function resolve_path(content: Object, json_path: string) : Option<string> {
     return resolve_path_inner(content, json_path, (v) => v)
 }
+
+export function parse(content: string) : Option<Object> {
+	try {
+		return Option.some(JSON.parse(content))
+	} catch (err){
+		return Option.none()
+	}
+}
