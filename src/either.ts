@@ -31,10 +31,10 @@ export class Either<L, R> {
 	}
 
 	static left<L, R>(l: L): Either<L, R>{
-		return new Either<L, R>(Option.from(l), Option.from(null))
+		return new Either<L, R>(Option.some(l), Option.none())
 	}
 
 	static right<L, R>(r: R): Either<L, R>{
-		return new Either<L, R>(Option.from(null), Option.from(r))
+		return new Either<L, R>(Option.none(), Option.some(r))
 	}
 }

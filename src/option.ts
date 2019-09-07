@@ -34,8 +34,19 @@ export abstract class Option<T>{
 		return !this.isDefined()
 	}
 
-	static from<T>(t: T | null) : Option<T> {
-		return null == t ? new None<T>() : new Some<T>(t)
+	static none<T>() : Option<T> {
+		return new None<T>()
+	}
+
+	static some<T>(t: T) : Option<T> {
+		if (null == t){
+			throw new Error("Some cannot be null!")
+		}
+		return new Some<T>(t)
+	}
+
+	static someOrNone<T>(t: T) : Option<T> {
+		return null == t ? Option.none() : Option.some(t)
 	}
 }
 
