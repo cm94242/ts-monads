@@ -14,6 +14,10 @@ export abstract class Try<T> {
 	}
 
 	abstract isSuccess() : boolean
+
+	isFailure(): boolean {
+		return !this.isSuccess()
+	}
 }
 
 class Success<T> extends Try<T> {
