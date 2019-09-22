@@ -7,9 +7,6 @@ export interface EitherMatch<L, R, T> {
 
 export class Either<L, R> {
 	private constructor(private readonly l: Option<L>, private readonly r: Option<R>){
-		if (!l.isDefined() && !r.isDefined()){
-			throw new Error("Both sides cannot be None")
-		}
 	}
 
 	isLeft() : boolean {
