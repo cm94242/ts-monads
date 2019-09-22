@@ -2,6 +2,14 @@ import { Option, OptionMatch } from '../src/option'
 
 describe('option suite', () => {
 
+	test('Construction basics', () => {
+		const some: Option<number> = Option.someOrNone(5)
+		expect(some.isDefined()).toBe(true)
+
+		const none: Option<number> = Option.someOrNone(null)
+		expect(none.isDefined()).toBe(false)
+	})
+
 	test(`None basics`, () => {
 		const none: Option<number> = Option.none()
 		expect(none.isEmpty()).toBe(true)
