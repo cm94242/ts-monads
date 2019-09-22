@@ -15,6 +15,10 @@ export abstract class Try<T> {
 
 	abstract isSuccess() : boolean
 
+	abstract map<U>(fxn: (T) => U): Try<U>
+
+	abstract get(): T
+
 	isFailure(): boolean {
 		return !this.isSuccess()
 	}
@@ -28,6 +32,15 @@ class Success<T> extends Try<T> {
 	isSuccess() : boolean {
 		return true
 	}
+
+	map<U>(fxn: (T) => U) : Try<U> {
+		const val = fxn(this.t)
+		return new Success(val)
+	}
+
+	get(): T {
+		return this.t
+	}
 }
 
 class Failure<T> extends Try<T> {
@@ -38,5 +51,13 @@ class Failure<T> extends Try<T> {
 
 	isSuccess() : boolean {
 		return false
+	}
+
+	map<U>(fxn: (T) => U) {
+		return new Failure<U>(this.err)
+	}
+
+	get() : T {
+		throw this.err
 	}
 }
