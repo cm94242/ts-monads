@@ -1,5 +1,5 @@
 export interface TryMatch<T, T2> {
-	success: (T) => T2
+	success: (arg: T) => T2
 	failure: (e: Error) => T2
 }
 
@@ -15,7 +15,7 @@ export abstract class Try<T> {
 
 	abstract isSuccess() : boolean
 
-	abstract map<U>(fxn: (T) => U): Try<U>
+	abstract map<U>(fxn: (arg: T) => U): Try<U>
 
 	abstract get(): T
 
@@ -25,7 +25,7 @@ export abstract class Try<T> {
 }
 
 class Success<T> extends Try<T> {
-	constructor(private readonly t: T){
+	constructor(private readonly arg: T){
 		super()
 	}
 
@@ -33,13 +33,13 @@ class Success<T> extends Try<T> {
 		return true
 	}
 
-	map<U>(fxn: (T) => U) : Try<U> {
-		const val = fxn(this.t)
+	map<U>(fxn: (arg: T) => U) : Try<U> {
+		const val = fxn(this.arg)
 		return new Success(val)
 	}
 
 	get(): T {
-		return this.t
+		return this.arg
 	}
 }
 
@@ -53,7 +53,7 @@ class Failure<T> extends Try<T> {
 		return false
 	}
 
-	map<U>(fxn: (T) => U) {
+	map<U>(fxn: (arg: T) => U) {
 		return new Failure<U>(this.err)
 	}
 

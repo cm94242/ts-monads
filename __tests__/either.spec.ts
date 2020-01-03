@@ -2,18 +2,6 @@ import { Either, EitherMatch } from '../src/either'
 
 describe('either suite', () => {
 
-	test(`bad basics`, () => {
-		try {
-			const either: Either<number, string> = Either.left(null)
-			fail("Should be a number, not a null")
-		} catch (err) {}
-
-		try {
-			const either: Either<number, string> = Either.left(undefined)
-			fail("Should be a number, not a null")
-		} catch (err) {}
-	})
-
 	test(`left basics`, () => {
 		const either: Either<number, string> = Either.left(5)
 		expect(either.isLeft()).toBe(true)

@@ -1,8 +1,8 @@
 import { Option } from './option'
 
 export interface EitherMatch<L, R, T> {
-	left: (L) => T,
-	right: (R) => T
+	left: (arg: L) => T,
+	right: (art: R) => T
 }
 
 export class Either<L, R> {
