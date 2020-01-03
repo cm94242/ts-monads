@@ -1,13 +1,14 @@
 {
-  "name": "tsm",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "ts-monads",
+  "version": "v1.0.0",
+  "description": "Basic monads",
+  "types" : "lib/monads.d.ts",
+  "repository": "github:cm94242/ts-monads",
   "scripts": {
     "test": "jest --colors --coverage --coverageDirectory out"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@types/jest": "^24.0.18",
     "@types/node": "^12.7.5",
