@@ -2,7 +2,7 @@
   "compilerOptions": {
 	"module": "commonjs",
 	"target": "es2015",
-	"outDir": "./lib",,
+	"outDir": "./lib",
 	"noImplicitAny" : true,
 	"noImplicitReturns" : true,
 	"noImplicitThis" : true,
