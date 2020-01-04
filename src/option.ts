@@ -44,10 +44,6 @@ export abstract class Option<T>{
 		}
 		return new Some<T>(arg)
 	}
-
-	static someOrNone<T>(arg: T | undefined | null) : Option<T> {
-		return null == arg ? Option.none() : Option.some(arg)
-	}
 }
 
 class Some<T> extends Option<T> {
