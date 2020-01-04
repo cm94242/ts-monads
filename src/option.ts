@@ -44,6 +44,13 @@ export abstract class Option<T>{
 		}
 		return new Some<T>(arg)
 	}
+
+	static from<T>(arg?: T) : Option<T> {
+		if (null == arg){
+			return Option.none()
+		}
+		return Option.some(arg)
+	}
 }
 
 class Some<T> extends Option<T> {
