@@ -35,6 +35,7 @@ $(OUT):
 	mkdir -p $@
 
 publish: $(PACKAGE)
+	npm publish
 
 clean:
 	rm -rf lib node_modules out $(NAME)*.tgz
