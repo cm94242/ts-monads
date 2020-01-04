@@ -1,6 +1,6 @@
 {
   "name": "monadix",
-  "version": "v1.0.0",
+  "version": "v1.0.1",
   "description": "Basic monads",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

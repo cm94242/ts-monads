@@ -35,6 +35,8 @@ $(OUT):
 	mkdir -p $@
 
 publish: $(PACKAGE)
+	git tag v$(VERSION)
+	git push origin v$(VERSION)
 	npm publish
 
 clean:
