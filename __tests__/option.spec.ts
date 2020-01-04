@@ -3,7 +3,7 @@ import { Option, OptionMatch } from '../src/option'
 describe('option suite', () => {
 
 	test('Construction basics', () => {
-		const some: Option<number> = Option.someOrNone(5)
+		const some: Option<number> = Option.some(5)
 		expect(some.isDefined()).toBe(true)
 
 		const none: Option<number> = Option.none()
