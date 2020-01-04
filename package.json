@@ -2,7 +2,8 @@
   "name": "ts-monads",
   "version": "v1.0.0",
   "description": "Basic monads",
-  "types": "lib/monads.d.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "repository": "github:cm94242/ts-monads",
   "scripts": {
     "test": "jest --colors --coverage --coverageDirectory out"
@@ -20,5 +21,6 @@
     "transform": {
       ".(ts|tsx)": "ts-jest"
     }
-  }
+  },
+  "files": ["lib/**/*"]
 }
