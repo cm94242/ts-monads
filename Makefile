@@ -1,7 +1,7 @@
 OUT=out
 
-NAME=$(jq -rM ".name" package.json)
-VERSION=$(jq -rM ".version" package.json | cut -c 2-)
+NAME:=$(shell jq -rM ".name" package.json)
+VERSION:=$(shell jq -rM ".version" package.json | cut -c 2-)
 PACKAGE=$(NAME)-$(VERSION).tgz
 SOURCE_FILES=$(wildcard src/*ts)
 TEST_FILES=$(wildcard __test__/*ts)
@@ -40,6 +40,6 @@ publish: $(PACKAGE)
 	npm publish
 
 clean:
-	rm -rf lib node_modules out $(NAME)*.tgz
+	rm -rf lib node_modules out *.tgz
 
 .PHONY: clean publish package test all
