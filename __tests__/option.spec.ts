@@ -9,11 +9,13 @@ describe('option suite', () => {
 		const none: Option<number> = Option.none()
 		expect(none.isDefined()).toBe(false)
 
-		// this is gross, there has to be a better way
-		const from1: Option<number> = Option.from(5) as unknown as Option<number>
+		const src1 = 5
+		const from1: Option<number> = Option.from(src1)
 		expect(from1.isDefined()).toBe(true)
 
-		const from2: Option<number> = Option.from(null) as unknown as Option<number>
+		// this is gross, there has to be a better way
+		const src2 = null
+		const from2: Option<number> = Option.from(src2) as unknown as Option<number>
 		expect(from2.isDefined()).toBe(false)
 	})
 
