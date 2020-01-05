@@ -45,7 +45,7 @@ export abstract class Option<T>{
 		return new Some<T>(arg)
 	}
 
-	static from<T>(arg?: T) : Option<T> {
+	static from<T>(arg: T | null | undefined) : Option<T> {
 		if (null == arg){
 			return Option.none()
 		}
